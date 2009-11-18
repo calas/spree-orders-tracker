@@ -1,0 +1,8 @@
+en-US:
+  orders_tracker:
+    couldnt_find_order: "Could not find order with the provided data."
+    track!: "Track!"
+    track_order: "Track Order"
+    tracking_order: "Tracking Order #{{order}}"
+    stop_tracking: "Stop Tracking This Order"
+    status: "Order State"

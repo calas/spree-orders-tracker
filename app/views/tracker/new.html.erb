@@ -1,0 +1,20 @@
+<h1>Track your Order</h1>
+
+<p>Enter the order number and billing address zip code below.</p>
+
+<% form_tag(tracker_url) do -%>
+<p>
+  <strong><%= label_tag(:order_number) %>:</strong><br />
+  <%= text_field_tag(:order_number) %>
+</p>
+
+<p>
+  <strong><%= label_tag(:zipcode) %>:</strong><br />
+  <%= text_field_tag(:zipcode) %>
+</p>
+
+<p>
+  <%= submit_tag t('orders_tracker.track!') %>
+</p>
+
+<% end -%>

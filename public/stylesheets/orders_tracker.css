@@ -1,0 +1,20 @@
+.adr, .order-status {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    min-width: 200px; }
+.adr .fn {
+    font-weight: bold; }
+.adr h4, .order-status h4 {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: .5em;
+    color: #666;
+    font-weight: bold;
+}
+
+.order-status .status {
+    color: #f00;
+    font-size: 180%;
+}
