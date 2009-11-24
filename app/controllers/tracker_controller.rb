@@ -13,6 +13,7 @@ class TrackerController < ApplicationController
   def show
     @order = Order.find_by_id(session[:tracked_order_id])
     redirect_to new_tracker_url and return if @order.nil?
+    render :template => "orders/show"
   end
 
   def destroy

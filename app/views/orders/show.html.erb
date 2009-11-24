@@ -1,0 +1,44 @@
+<% if @controller.controller_name == "tracker" -%>
+  <% content_for :head do -%>
+    <%= stylesheet_link_tag 'orders_tracker' %>
+  <% end -%>
+
+  <h1><%= t("orders_tracker.tracking_order", :order => @order.number) -%></h1>
+<% end -%>
+
+<div id="order">
+  <%= link_to t('back_to_store'), products_path %>
+
+  <% if params.has_key? :checkout_complete %>
+    <br/><br/>
+    <h3><%= t('thank_you_for_your_order') %></h3>
+     <% if Spree::Config[:google_analytics_id] and not %w{development test}.include? RAILS_ENV %>
+       <%= render :partial => "orders/google_order", :locals => {:order => @order} %>
+     <% end %>
+  <% elsif current_user %>
+  | <%= link_to t('my_account'), user_path(current_user) if current_user%>
+  <% end %>
+
+  <% if @controller.controller_name == "tracker" -%>
+  <div class="order-status">
+    <h4><%= t('orders_tracker.status') %></h4>
+    <p class="status"><%= t(@order.state) %></p>
+  </div>
+
+  <% if @order.ship_address %>
+  <div class='adr'>
+    <h4><%= t("ship_address") %></h4>
+    <%= render 'admin/shared/address', :address => @order.ship_address %>
+  </div>
+  <% end %>
+  <hr />
+  <% end -%>
+  <%= render 'shared/order_details', :order => @order -%>
+
+  <% if @controller.controller_name == "tracker" -%>
+  <br/>
+  <%= link_to t('orders_tracker.stop_tracking'), tracker_url, :method => :delete %>
+  |
+  <%= link_to t('back_to_store'), products_path %>
+  <% end -%>
+</div>
