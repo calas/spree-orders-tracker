@@ -1,4 +1,4 @@
-en-US:
+en:
   orders_tracker:
     couldnt_find_order: "Could not find order with the provided data."
     track!: "Track your order"
